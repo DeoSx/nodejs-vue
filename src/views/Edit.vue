@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Page {{ this.$route.params.id }}</h1>
+    <h1>{{ title }}</h1>
     <form class="col s12" @submit.prevent="editItem">
       <div class="row">
         <div class="input-field col s12">

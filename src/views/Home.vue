@@ -27,8 +27,11 @@
           >
             <i class="material-icons">edit</i>
           </router-link>
-          <button class="btn red waves-effect waves-light btn-small">
-            <i class="material-icons">delete</i>
+          <button 
+            class="btn red waves-effect waves-light btn-small" 
+            @click="removeItem(i._id)"
+          >
+              <i class="material-icons">delete</i>
           </button>
         </div>
       </li>
@@ -48,7 +51,11 @@ export default {
     async fetchItems() {
       try {
         const items = await this.$store.dispatch('fetch');
-        console.log(items);
+      } catch (e) {}
+    },
+    async removeItem(id) {
+      try {
+        await this.$store.dispatch('remove', id)
       } catch (e) {}
     }
   }

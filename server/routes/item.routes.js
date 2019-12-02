@@ -45,5 +45,14 @@ router.put('/edit/:id', async (req, res) => {
     console.log(e);
   }
 });
+router.delete('/:id', async (req, res) => {
+  try {
+    const item = await Item.findByIdAndDelete({_id: req.params.id})
+    console.log(item)
+    res.json(item)
+  } catch (e) {
+    console.log(e)
+  }
+})
 
 module.exports = router;
